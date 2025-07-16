@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Sơ đồ kho D1</title>
+  <style>
+    body {
+      background: url('nen.png') no-repeat center top;
+      background-size: contain;
+      height: 100vh;
+      margin: 0;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+    .zone {
+      position: absolute;
+      background: transparent;
+      border: none;
+      width: 100px;
+      height: 50px;
+      cursor: pointer;
+    }
+    .gia {
+      width: 150px;
+      height: 70px;
+    }
+    .zone:hover {
+      background: rgba(255, 255, 0, 0.2);
+    }
+    #popup {
+      display: none;
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 2px solid black;
+      border-radius: 8px;
+      padding: 20px;
+      z-index: 10;
+      width: 300px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    #popup h2 {
+      margin-top: 0;
+    }
+    #popup button {
+      margin-top: 10px;
+      padding: 5px 10px;
+    }
+  </style>
+  <script>
+    function showPopup(title, content) {
+      document.getElementById('popup-title').innerText = title;
+      document.getElementById('popup-content').innerText = content;
+      document.getElementById('popup').style.display = 'block';
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+
+<!-- Vùng tương tác ẩn (tọa độ tương đối - có thể chỉnh thêm nếu cần chính xác hơn) -->
+<div class="zone" style="top: 40%; left: 23%;" onclick="showPopup('Tủ súng số 1', 'Thông tin sẽ được cập nhật')"></div>
+<div class="zone" style="top: 40%; left: 42%;" onclick="showPopup('Tủ súng số 2', 'Thông tin sẽ được cập nhật')"></div>
+<div class="zone" style="top: 40%; left: 60%;" onclick="showPopup('Tủ súng số 3', 'Thông tin sẽ được cập nhật')"></div>
+
+<div class="zone gia" style="top: 70%; left: 20%;" onclick="showPopup('Giá để khí tài số 1', 'Thông tin sẽ được cập nhật')"></div>
+<div class="zone gia" style="top: 70%; left: 55%;" onclick="showPopup('Giá để khí tài số 2', 'Thông tin sẽ được cập nhật')"></div>
+
+<!-- Popup nội dung -->
+<div id="popup">
+  <h2 id="popup-title"></h2>
+  <p id="popup-content"></p>
+  <button onclick="closePopup()">Đóng</button>
+</div>
+
+</body>
+</html>
