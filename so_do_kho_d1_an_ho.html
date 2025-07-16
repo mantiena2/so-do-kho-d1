@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Sơ đồ kho D1</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    #container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #background-img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+    .zone {
+      position: absolute;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .tu {
+      width: 140px;
+      height: 90px;
+    }
+    .gia {
+      width: 220px;
+      height: 110px;
+    }
+    #popup {
+      display: none;
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      border: 2px solid black;
+      border-radius: 8px;
+      padding: 20px;
+      z-index: 999;
+      width: 90%;
+      max-width: 700px;
+      max-height: 80vh;
+      overflow: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    #popup h2 {
+  margin-top: 0;
+  text-align: center;
+
+    }
+    #popup table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    #popup th, #popup td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: center;
+    }
+    #popup button {
+      margin-top: 10px;
+      padding: 6px 12px;
+    }
+  </style>
+  <script>
+    function showPopup(title, tableHTML) {
+      document.getElementById('popup-title').innerText = title;
+      document.getElementById('popup-content').innerHTML = tableHTML;
+      document.getElementById('popup').style.display = 'block';
+    }
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</head>
+<body>
+<div id="container">
+  <img src="nen.png" id="background-img" alt="Sơ đồ kho D1">
+
+  <!-- Các vùng click -->
+  <div class="zone tu" style="top: 37%; left: 32%;" onclick="showPopup('Tủ súng số 1', document.getElementById('ts1').innerHTML)"></div>
+  <div class="zone tu" style="top: 37%; left: 48%;" onclick="showPopup('Tủ súng số 2', document.getElementById('ts23').innerHTML)"></div>
+  <div class="zone tu" style="top: 37%; left: 66%;" onclick="showPopup('Tủ súng số 3', document.getElementById('ts23').innerHTML)"></div>
+  <div class="zone gia" style="top: 65%; left: 25%;" onclick="showPopup('Giá khí tài 1', document.getElementById('gia1').innerHTML)"></div>
+  <div class="zone gia" style="top: 65%; left: 60%;" onclick="showPopup('Giá khí tài 2', document.getElementById('gia2').innerHTML)"></div>
+
+  <!-- Popup -->
+  <div id="popup">
+    <h2 id="popup-title"></h2>
+    <div id="popup-content"></div>
+    <button onclick="closePopup()">Đóng</button>
+  </div>
+
+  <!-- Dữ liệu bảng ẩn -->
+  <div id="ts1" style="display:none">
+    <table>
+      <tr><th>TT</th><th>Tên trang bị</th><th>ĐVT</th><th>SL</th></tr>
+      <tr><td>1</td><td>Súng TLAK</td><td>Khẩu</td><td>10</td></tr>
+      <tr><td>2</td><td>Súng K54</td><td>Khẩu</td><td>03</td></tr>
+      <tr><td>3</td><td>Hộp tiếp đạn AK (nhựa)</td><td>Cái</td><td>30</td></tr>
+      <tr><td>4</td><td>Bao xe rằn ri</td><td>Cái</td><td>10</td></tr>
+      <tr><td>5</td><td>Hộp bao da K54</td><td>Cái</td><td>03</td></tr>
+      <tr><td>6</td><td>Hộp phụ tùng AK</td><td>Cái</td><td>10</td></tr>
+      <tr><td>7</td><td>Thông nòng TLAK</td><td>Cái</td><td>10</td></tr>
+      <tr><td>8</td><td>Thông nòng K54</td><td>Cái</td><td>03</td></tr>
+      <tr><td>9</td><td>Vịt dầu</td><td>Cái</td><td>10</td></tr>
+    </table>
+  </div>
+
+  <div id="ts23" style="display:none">
+    <table>
+      <tr><th>TT</th><th>Tên trang bị</th><th>ĐVT</th><th>SL</th></tr>
+      <tr><td>1</td><td>Súng TLAK</td><td>Khẩu</td><td>14</td></tr>
+      <tr><td>2</td><td>Súng K54</td><td>Khẩu</td><td>03</td></tr>
+      <tr><td>3</td><td>Hộp tiếp đạn AK (nhựa)</td><td>Cái</td><td>14</td></tr>
+      <tr><td>4</td><td>Bao xe rằn ri</td><td>Cái</td><td>14</td></tr>
+      <tr><td>5</td><td>Hộp bao da K54</td><td>Cái</td><td>03</td></tr>
+      <tr><td>6</td><td>Hộp phụ tùng AK</td><td>Cái</td><td>14</td></tr>
+      <tr><td>7</td><td>Thông nòng TLAK</td><td>Cái</td><td>14</td></tr>
+      <tr><td>8</td><td>Thông nòng K54</td><td>Cái</td><td>03</td></tr>
+      <tr><td>9</td><td>Vịt dầu</td><td>Cái</td><td>14</td></tr>
+    </table>
+  </div>
+
+  <div id="gia1" style="display:none">
+    <table>
+      <tr><th>TT</th><th>Tên khí tài</th><th>ĐVT</th><th>SL</th></tr>
+      <tr><td>1</td><td>Dao quắm</td><td>Chiếc</td><td>02</td></tr>
+      <tr><td>2</td><td>Dao</td><td>Chiếc</td><td>02</td></tr>
+      <tr><td>3</td><td>Cuốc bàn</td><td>Chiếc</td><td>06</td></tr>
+      <tr><td>4</td><td>Cưa cá mập</td><td>Chiếc</td><td>02</td></tr>
+      <tr><td>5</td><td>Cuốc CB</td><td>Chiếc</td><td>06</td></tr>
+      <tr><td>6</td><td>Cuốc BB</td><td>Chiếc</td><td>10</td></tr>
+      <tr><td>7</td><td>Mặt nạ</td><td>Chiếc</td><td>25</td></tr>
+      <tr><td>8</td><td>Búa tạ</td><td>Chiếc</td><td>02</td></tr>
+      <tr><td>9</td><td>Cưa tay</td><td>Chiếc</td><td>03</td></tr>
+    </table>
+  </div>
+
+  <div id="gia2" style="display:none">
+    <table>
+      <tr><th>TT</th><th>Tên khí tài</th><th>ĐVT</th><th>SL</th></tr>
+      <tr><td>1</td><td>Thuổng</td><td>Chiếc</td><td>06</td></tr>
+      <tr><td>2</td><td>Xẻng BB</td><td>Chiếc</td><td>10</td></tr>
+      <tr><td>3</td><td>Xẻng CB</td><td>Chiếc</td><td>06</td></tr>
+      <tr><td>4</td><td>Choòng</td><td>Chiếc</td><td>05</td></tr>
+      <tr><td>5</td><td>Đầm chân voi</td><td>Chiếc</td><td>03</td></tr>
+      <tr><td>6</td><td>Búa nguyệt</td><td>Chiếc</td><td>02</td></tr>
+      <tr><td>7</td><td>Phao cứu sinh</td><td>Chiếc</td><td>10</td></tr>
+      <tr><td>8</td><td>Áo phao</td><td>Chiếc</td><td>30</td></tr>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>
